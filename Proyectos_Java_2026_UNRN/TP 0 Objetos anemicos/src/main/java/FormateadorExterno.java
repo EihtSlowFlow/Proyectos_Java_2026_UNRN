@@ -8,7 +8,7 @@ public class FormateadorExterno {
 
     public String FormatoB(Tiempo_Anemico tiempo) {
         /// El formateador modifica el estado interno del objeto Tiempo_Anemico
-        ///  lo cual cumple contradice el encapsulamiento(nadie debe conocer el estado interno del objeto) y por lo tanto
+        ///  lo cual contradice el encapsulamiento(nadie debe conocer el estado interno del objeto) y por lo tanto
         ///  el objeto es anemico.
         fecha.set(tiempo.getAnio(), tiempo.getMes() - 1, tiempo.getDia());
         SimpleDateFormat sdf = new SimpleDateFormat("dd/M/yyyy");

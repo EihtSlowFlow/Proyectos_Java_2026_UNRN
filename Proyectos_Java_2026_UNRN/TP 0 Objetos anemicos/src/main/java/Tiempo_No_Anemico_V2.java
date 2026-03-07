@@ -10,12 +10,14 @@ public class Tiempo_No_Anemico_V2 {
 
     public Tiempo_No_Anemico_V2(int dia, int mes, int anio) {
         this.fechaInterna = Calendar.getInstance();
-        // Recordar la corrección del mes (-1)
+        /// -1 porque el mes en Calendar empieza desde 0, es decir,
+        /// enero es 0, febrero es 1, etc. Por eso al asignar el valor
+        /// del mes a la variable fechaHoy, se le resta 1 para que corresponda al mes correcto.
         this.fechaInterna.set(anio, mes - 1, dia);
     }
 
     public String formatoA() {
-        // Las herramientas son variables locales, no atributos de la clase
+        // Antes habia un error: Las herramientas son variables locales, no atributos de la clase
         Locale locFec = new Locale("es", "ES");
         DateFormat formatoFull = DateFormat.getDateInstance(DateFormat.FULL, locFec);
         return formatoFull.format(fechaInterna.getTime());

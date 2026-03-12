@@ -8,6 +8,6 @@ public class Restaurante {
         menu.realizarPedido(4); // Gaseosa de Cola
         menu.realizarPedido(2); // Pizza con muzzarella
         menu.realizarPedido(5); // Agua Mineral
-        menu.mostrarResumenPedido("MASTERCARD", 0.02);
+        menu.finalizarPedido("MASTERCARD", 0.02);
     }
 }

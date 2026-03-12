@@ -40,5 +40,15 @@ public class CalcularPrecios {
         return costoConDescuento + propina;
     }
 
-}
+    public double getDescuentoVisa(double costoBebidas) {
+        return costoBebidas * 0.03;
+    }
 
+    public double getDescuentoMastercard(double costoPlatosPrincipales) {
+        return costoPlatosPrincipales * 0.02;
+    }
+
+    public double getDescuentoComarcaPlus(double costoTotal) {
+        return costoTotal * 0.02;
+    }
+}

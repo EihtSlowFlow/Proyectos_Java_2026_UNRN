@@ -18,13 +18,12 @@ public class MenuElectronico {
     }
 
     public void realizarPedido(int numeroPlato) {
-        try {
-            if (numeroPlato < 1 || numeroPlato > platos.size()) {
-                Consumible seleccionado = platos.get(numeroPlato - 1);
-                pedido.add(seleccionado);
-            }
-        } catch (RuntimeException e) {
-            System.err.println("Número de plato inválido. Por favor, seleccione un número entre 1 y " + platos.size());
+        // La condición es que el número esté DENTRO del rango
+        if (numeroPlato >= 1 && numeroPlato <= platos.size()) {
+            Consumible seleccionado = platos.get(numeroPlato - 1);
+            pedido.add(seleccionado);
+        } else {
+            System.err.println("Número de plato inválido.");
         }
     }
 
@@ -45,7 +44,7 @@ public class MenuElectronico {
 
     /// Muestra el resumen del pedido con descuentos y propina
 
-    public void mostrarResumenPedido(String tipoTarjeta, double porcentajePropina) {
+    public void finalizarPedido(String tipoTarjeta, double porcentajePropina) {
         double costoBebidas = calcularTotalBebidas();
         double costoPlatos = calcularTotalPlatosPrincipales();
         double subtotal = costoBebidas + costoPlatos;

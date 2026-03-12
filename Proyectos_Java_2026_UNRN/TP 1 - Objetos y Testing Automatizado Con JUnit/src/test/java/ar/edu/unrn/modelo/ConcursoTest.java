@@ -2,6 +2,9 @@ package ar.edu.unrn.modelo; // Cambiado de 'java' a un nombre válido
 
 import org.junit.jupiter.api.Test;
 
+import ar.edu.unrn.modelo.punto1.Concurso;
+import ar.edu.unrn.modelo.punto1.Participante;
+
 import java.util.Calendar;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -23,7 +26,7 @@ public class ConcursoTest {
         // 2. Exercise
         /// Antes tenia un assertThrows aquí, pero no es correcto porque el concurso debería estar abierto.
         /// En cambio, lo que queremos verificar es que no se asignan puntos extra por inscribirse después del primer día.
-        concurso.inscribirParticipante(participante);
+        participante.inscribirseA(concurso);
 
         // 3. Verify
         // Verificamos que se inscribió pero tiene 0 puntos (los 10 son solo el día 20)

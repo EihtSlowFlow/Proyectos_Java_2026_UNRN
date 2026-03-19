@@ -8,8 +8,6 @@ public class Pedido {
     private final List<Consumible> consumibles;
     /// Declarando
     private final Tarjeta tarjeta;
-    private double costoPlatos;
-    private double costoBebidas;
 
 
     public Pedido(List<Consumible> consumibles, Tarjeta tarjeta) {
@@ -32,12 +30,25 @@ public class Pedido {
     }
 
     public double calcularTotalConDescuento() {
-        double total = calcularTotal();
-        if (tarjeta != null) {
-            total -= tarjeta.aplicarDescuento(this);
+        // TELL: Le decimos a la tarjeta que se prepare
+        /// Despeja los valores anteriores para iniciar en 0
+        tarjeta.iniciarProcesamiento();
 
+        double bruto = this.calcularTotal();
+
+        // Doble despacho --> (el primer despacho): el JVM decide qué computarDescuento ejecutar basándose en el Consumible
+        // (segundo despacho): Dentro del método el objeto ejecuta tarjeta.descontarBebida( this.precio). En este punto
+        // el compilador sabe que tiene que llamar a descontarBebida() porque el código esta escrito dentro de la clase Bebida()
+
+
+        /// La JVM se encarga de llamar al método correcto según el tipo real del consumible (plato o bebida)
+        /// ya que ambos implementan la interfaz Consumible, pero cada uno tiene su propia lógica de descuento en el método computarDescuento
+        for (Consumible c : consumibles) {
+            c.computarDescuento(this.tarjeta);
         }
-        return total;
+
+        // Devolvemos el total restando el acumulado limpio
+        return bruto - tarjeta.totalDescuentoAcumulado();
     }
 
     public double calcularMontoPropina(double porcentaje) {
@@ -50,24 +61,13 @@ public class Pedido {
         return calcularTotalConDescuento() + calcularMontoPropina(porcentajePropina);
     }
 
-
-    public double getCostoPlatos() {
-        double costo = 0.0;
-        for (Consumible consumible : consumibles) {
-            costo += consumible.precioSiEsPlato();
-        }
-        return costo;
-    }
-
-    public double getCostoBebidas() {
-        double costo = 0.0;
-        for (Consumible consumible : consumibles) {
-            costo += consumible.precioSiEsBebida();
-        }
-        return costo;
-    }
-
     public String finalizarPedido(double porcentajePropina) {
+        double bruto = calcularTotal();
+        double conDescuento = calcularTotalConDescuento();
+        double descuentoAplicado = bruto - conDescuento;
+        double montoPropina = calcularMontoPropina(porcentajePropina);
+        double totalFinal = conDescuento + montoPropina;
+
         return String.format(
                 "Resumen de Cuenta:\n" +
                         "------------------\n" +
@@ -76,11 +76,11 @@ public class Pedido {
                         "Propina (%d%%):     $%.2f\n" +
                         "------------------\n" +
                         "TOTAL FINAL:      $%.2f",
-                calcularTotal(),
-                tarjeta.aplicarDescuento(this),
+                bruto,
+                descuentoAplicado,
                 (int) porcentajePropina,
-                calcularMontoPropina(porcentajePropina),
-                calcularTotalFinal(porcentajePropina)
+                montoPropina,
+                totalFinal
         );
     }
 

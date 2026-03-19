@@ -9,20 +9,14 @@ public class Plato implements Consumible {
         this.Nombre = nombre;
     }
 
-    @Override
     ///  Valor intrinseco --> identidad del objeto.
+    @Override
     public double precio() {
-        return precio;
-    }
-
-    /// Valor del objeto en el contexto donde se utiliza.
-    @Override
-    public double precioSiEsBebida() {
-        return 0;
+        return this.precio;
     }
 
     @Override
-    public double precioSiEsPlato() {
-        return precio;
+    public void computarDescuento(Tarjeta tarjeta) {
+        tarjeta.descontarPlato(this.precio());
     }
 }

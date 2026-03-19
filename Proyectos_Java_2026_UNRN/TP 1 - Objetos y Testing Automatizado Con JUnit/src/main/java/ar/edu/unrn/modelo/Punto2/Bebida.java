@@ -9,20 +9,14 @@ public class Bebida implements Consumible {
         this.Nombre = nombre;
     }
 
-    @Override
     ///  Valor intrinseco --> identidad del objeto.
+    @Override
     public double precio() {
-        return precio;
+        return this.precio;
     }
 
-    /// Valor del objeto en el contexto donde se utiliza.
-    @Override
-    public double precioSiEsBebida() {
-        return precio;
-    }
 
-    @Override
-    public double precioSiEsPlato() {
-        return 0;
+    public void computarDescuento(Tarjeta tarjeta) {
+        tarjeta.descontarBebida(this.precio());
     }
 }

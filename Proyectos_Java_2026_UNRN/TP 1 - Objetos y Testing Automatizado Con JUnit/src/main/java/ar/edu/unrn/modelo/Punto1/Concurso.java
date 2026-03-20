@@ -1,41 +1,47 @@
 package ar.edu.unrn.modelo.Punto1;
 
-import java.util.Calendar;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Concurso {
-    private final Calendar dia_de_inscripcion = Calendar.getInstance();
-    private final Calendar ultimoDiaDeinscripcion = Calendar.getInstance();
+    private final LocalDate fechaInicio;
+    private final LocalDate fechaFin;
+    private LocalDate fechaActual; // Para simular el paso del tiempo en tests
+    private final List<Participante> inscriptos;
 
-    private Calendar fechaActual = Calendar.getInstance();
-
-    public Concurso() {
-        dia_de_inscripcion.set(2024, Calendar.JUNE, 20);
-        ultimoDiaDeinscripcion.set(2024, Calendar.JUNE, 27);
-        /// fechaActual.set(anio, mes, dia);
+    public Concurso(LocalDate inicio, LocalDate fin) {
+        this.fechaInicio = inicio;
+        this.fechaFin = fin;
+        this.inscriptos = new ArrayList<>();
+        this.fechaActual = LocalDate.now(); // Por defecto es hoy
     }
 
     public boolean estaAbierto() {
-        return (fechaActual.after(dia_de_inscripcion) && fechaActual.before(ultimoDiaDeinscripcion)) ||
-                fechaActual.equals(dia_de_inscripcion) || fechaActual.equals(ultimoDiaDeinscripcion);
+        // Rango inclusivo: inicio <= actual <= fin
+        return (fechaActual.isEqual(fechaInicio) || fechaActual.isAfter(fechaInicio)) &&
+                (fechaActual.isEqual(fechaFin) || fechaActual.isBefore(fechaFin));
     }
 
-    public void inscribirParticipante(Participante participante) {
-        ///  Dia en el que se está inscribiendo el participante
+    public void inscribirParticipante(Participante p) {
         if (!estaAbierto()) {
             throw new RuntimeException("El concurso ya no está abierto para inscripciones.");
-        } else {
-            if (fechaActual.equals(dia_de_inscripcion)) {
-                participante.ganarPuntos(10);
-                ///  Ahora el ultimo dia entra como tiempo de inscripcion, pero no da puntos extra.
-            } else if (fechaActual.after(dia_de_inscripcion) && (fechaActual.before(ultimoDiaDeinscripcion) || fechaActual.equals(ultimoDiaDeinscripcion))) {
-                System.out.println("Participante inscrito sin puntos adicionales.");
-            }
-            // Lógica para inscribir al participante
         }
+
+        // Regla: 10 puntos solo el primer día
+        if (fechaActual.isEqual(fechaInicio)) {
+            p.ganarPuntos(10);
+        }
+
+        this.inscriptos.add(p);
     }
 
-    // Método para establecer la fecha actual para testing
-    public void setFechaActual(Calendar fecha) {
+    // Método fundamental para los tests
+    public void setFechaActual(LocalDate fecha) {
         this.fechaActual = fecha;
+    }
+
+    public boolean tieneInscripto(Participante p) {
+        return inscriptos.contains(p);
     }
 }

@@ -40,4 +40,20 @@ public class ExportInMemoryRestauranteTest {
                 "El archivo no contiene el formato exacto pedido por el profesor.");
     }
 
+    @Test
+    void testExportacionMasivaCSV() {
+        menu.realizarPedido(1);
+        Pedido pedidoReal = new Pedido(menu.getListaPedido(), tarjeta, fileEXP);
+        pedidoReal.setFechaActual(fechaHoraActual);
+        pedidoReal.finalizarPedido(10);
+
+        String contenido = fileEXP.datos();
+
+        // Debug
+        System.out.println("DEBUG - Contenido del CSV:\n" + contenido);
+
+        assertTrue(contenido.contains("Pizza"), "Falta la Pizza en: " + contenido);
+    }
+
+
 }

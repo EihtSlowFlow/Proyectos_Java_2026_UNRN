@@ -1,8 +1,3 @@
-¡Excelente idea! Un buen **README** es la cara de tu código, especialmente si Molinari o algún compañero revisa tu repositorio en GitHub. Al estar en la rama `Punto_2_Refactor_CSV`, este archivo debe explicar **por qué** decidiste cambiar la estrategia de exportación.
-
-Aquí tenés una propuesta de `README.md` estructurada, clara y con un toque de "pro":
-
----
 
 # 🍽️ Restaurante OO2 - Refactor CSV (Punto 2)
 

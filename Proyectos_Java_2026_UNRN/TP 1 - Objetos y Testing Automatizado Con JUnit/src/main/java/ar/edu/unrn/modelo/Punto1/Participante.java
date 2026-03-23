@@ -16,9 +16,7 @@ public class Participante {
     }
 
     public void ganarPuntos(int cantidad) {
-        if (cantidad > 0) {
-            this.puntos += cantidad;
-        }
+        this.puntos += cantidad;
     }
 
     public int getPuntos() {

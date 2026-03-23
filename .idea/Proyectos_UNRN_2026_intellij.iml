@@ -9,6 +9,8 @@
       <sourceFolder url="file://$MODULE_DIR$/Proyectos_Java_2026_UNRN/TP 0 Objetos anemicos/test" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Proyectos_Java_2026_UNRN/TP 1 - Objetos y Testing Automatizado Con JUnit/src/main" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Proyectos_Java_2026_UNRN/TP 1 - Objetos y Testing Automatizado Con JUnit/src/test" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/Proyectos_Java_2026_UNRN/TP 2 - Diseño y Testing Automatizado con Junit/src/main" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Proyectos_Java_2026_UNRN/TP 2 - Diseño y Testing Automatizado con Junit/src/test" isTestSource="true" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

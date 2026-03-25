@@ -24,13 +24,13 @@ public class ExportInMemoryRestauranteTest {
 
         tarjeta = new Visa();
         fileEXP = new FileExportInMemory();
-        pedido = new Pedido(menu.getListaPedido(), tarjeta, fileEXP);
+        pedido = new Pedido(menu.getListaPedido(), fileEXP, () -> tarjeta, () -> this.fechaHoraActual);
 
     }
 
     @Test
     void testExportableEnMemoria() {
-        pedido.setFechaActual(fechaHoraActual); // Establecemos la fecha simulada
+
         pedido.finalizarPedido(2);
 
         String lineaEsperada = String.format("26/03/2026 12:00:00 || %.2f",

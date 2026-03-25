@@ -28,8 +28,7 @@ public class ExportRealRestauranteTest {
         menu.realizarPedido(2);
         menu.realizarPedido(3);
 
-        pedido123 = new Pedido(menu.getListaPedido(), new Visa(), fileExport);
-        pedido123.setFechaActual(fechaHoraActual);
+        pedido123 = new Pedido(menu.getListaPedido(), fileExport, () -> tarjetaGenerica, () -> this.fechaHoraActual);
 
 
     }

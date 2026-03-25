@@ -5,6 +5,7 @@ public class MasterCard implements Tarjeta {
     private double descuento = 0;
 
     public void iniciarProcesamiento() {
+        // ¿realmente necesario?
         this.descuento = 0;
     }
 

@@ -6,8 +6,9 @@ import jakarta.mail.internet.*;
 import java.util.Properties;
 
 
-public class EmailService {
-    public void enviarCorreo(String destino, String asunto, String mensaje) {
+public class EmailService implements Notificador {
+    @Override
+    public void enviarNotificacion(String destino, String asunto, String mensaje) {
         // Configuraciones provistas por Mailtrap
         Properties prop = new Properties();
         prop.put("mail.smtp.auth", true);

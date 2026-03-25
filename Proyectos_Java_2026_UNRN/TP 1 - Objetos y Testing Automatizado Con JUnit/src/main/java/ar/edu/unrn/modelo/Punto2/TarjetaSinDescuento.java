@@ -1,7 +1,9 @@
 package ar.edu.unrn.modelo.Punto2;
 
 public class TarjetaSinDescuento implements Tarjeta {
+
     @Override
+    // ¿realmente necesario?
     public void iniciarProcesamiento() {
     }
 

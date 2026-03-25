@@ -14,7 +14,7 @@ public class FileExportRestaurante implements Export {
     @Override
     public void exportar(String data) {
         File file = new File(filePath);
-        try (FileWriter writer = new FileWriter(file, true)) { // Append mode
+        try (FileWriter writer = new FileWriter(file, true)) { // Append mode, para que concatene y no borre lo que estaba de antes.
             writer.write(data + System.lineSeparator());
         } catch (IOException e) {
             throw new RuntimeException("Error al exportar los datos: " + e.getMessage());

@@ -1,5 +1,7 @@
 package ar.edu.unrn.modelo.Punto1;
 
+import java.util.Objects;
+
 public class Participante {
     private final String nombre;
     private final String apellido;
@@ -30,4 +32,20 @@ public class Participante {
     public String getNombreCompleto() {
         return nombre + " " + apellido;
     }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Participante that = (Participante) o;
+        return dni == that.dni;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(dni);
+    }
+
 }

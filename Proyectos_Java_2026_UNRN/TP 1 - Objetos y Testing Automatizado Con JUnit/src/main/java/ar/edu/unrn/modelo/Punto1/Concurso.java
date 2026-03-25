@@ -37,11 +37,15 @@ public class Concurso {
     }
 
     // Método fundamental para los tests
+    // DESTRUCCIÓN TOTAL DEL ENCAPSULAMIENTO. Utilizar inyección de dependencias.
     public void setFechaActual(LocalDate fecha) {
         this.fechaActual = fecha;
     }
 
+    // USO DE CONTAINS: Para que contains funcione correctamente, la clase Participante debería tener sobrescritos los métodos equals() y hashCode()
     public boolean tieneInscripto(Participante p) {
         return inscriptos.contains(p);
     }
+
+
 }

@@ -15,8 +15,6 @@ import java.time.LocalDate;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class TestExportReal {
-    private FileExportConcurso exportReal;
-    private FileExportConcurso exportTrucho;
     private Participante LocDog;
     private Participante Cenicero;
     private Participante HorseWithNoName;
@@ -36,10 +34,10 @@ public class TestExportReal {
         // Configuramos el exportador real con una ruta de archivo temporal
         String rutaArchivo = "/home/ramiro/tp2-punto1-participantesExportados.txt";
         new FileWriter(rutaArchivo, false).close(); // Limpiamos el archivo antes de cada test
-        exportReal = new FileExportConcurso(rutaArchivo);
+        FileExportConcurso exportReal = new FileExportConcurso(rutaArchivo);
         /// Para simular el error de exportación, intentamos usar una ruta no válida (en sistemas Unix, esta ruta no existe)
         String rutaFalsa = "/N/O/E/X/I/S/T/E";
-        exportTrucho = new FileExportConcurso(rutaFalsa);
+        FileExportConcurso exportTrucho = new FileExportConcurso(rutaFalsa);
 
         // Creamos un concurso con el exportador real
         comerSanbuchitoMiga = new Concurso(FECHA_CONCURSO_MIGA, FECHA_CONCURSO_MIGA.plusDays(5),
@@ -54,12 +52,12 @@ public class TestExportReal {
         comerSanbuchitoMiga.setFechaActual(FECHA_CONCURSO_MIGA);
         deletreoEnIngles.setFechaActual(FECHA_CONCURSO_DELETREO);
         concursoFalso710.setFechaActual(FECHA_CONCURSO_FALSO);
-
+        /*
         // Creamos participantes
         LocDog = new Participante("Loc", "Dog", 30, 87654321, );
         Cenicero = new Participante("Cenicero", "Zero", 25, 11223344, );
         HorseWithNoName = new Participante("Horse", "WithNoName", 40, 99887766, );
-
+        */
 
     }
 

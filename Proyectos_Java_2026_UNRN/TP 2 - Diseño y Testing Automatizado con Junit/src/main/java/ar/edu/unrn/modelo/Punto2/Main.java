@@ -3,7 +3,7 @@ package ar.edu.unrn.modelo.Punto2;
 import ar.edu.unrn.persistencia.JdbcExportRestaurante;
 
 public class Main {
-    static void main(String[] args) {
+    static void main() {
 
         // Aquí el usuario elige:
         Export exportador = new JdbcExportRestaurante();

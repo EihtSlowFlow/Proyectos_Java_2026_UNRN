@@ -8,7 +8,6 @@ import java.time.LocalDate;
 
 public class Main {
     static void main() {
-        EmailService emailService = new EmailService();
         // Definimos las credenciales que vimos en la pestaña Database
         LocalDate fec_inscripcion = LocalDate.now();
 
@@ -23,6 +22,7 @@ public class Main {
         Participante participante3 = new Participante("Pedro", "López", 28, 11223344, "PedroPicaPapas@hotmail.com");
 
         concurso.inscribirParticipante(participante1);
+        ///  Se limita a 1 la inscripción por una cuestión de limite con emailTrap
         //  concurso.inscribirParticipante(participante2);
         //concurso.inscribirParticipante(participante3);
 

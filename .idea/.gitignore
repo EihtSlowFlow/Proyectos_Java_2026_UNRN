@@ -8,3 +8,7 @@
 /dataSources.local.xml
 # Editor-based HTTP Client requests
 /httpRequests/
+# Credenciales o LA LLAVE DE MI CASA
+target/
+*.iml
+database.properties

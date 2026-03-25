@@ -44,7 +44,7 @@ public class TestExportInMemory {
 
     @Test
     public void testExportarAlInscribir() {
-        Participante barney = new Participante("Barney", "Gomez", 40, 12345678);
+        Participante barney = new Participante("Barney", "Gomez", 40, 12345678, );
 
         // Al inscribir, ya debería dispararse la exportación según la consigna
         concursoLetras.setFechaActual(FECHA_LETRAS); // Aseguramos que la fecha actual es la de inicio
@@ -61,8 +61,8 @@ public class TestExportInMemory {
 
     @Test
     public void testInscripcionesVariosConcursosEnMismoArchivo() {
-        Participante barney = new Participante("Barney", "Gomez", 40, 12345678);
-        Participante betty = new Participante("Betty", "Smith", 30, 87654321);
+        Participante barney = new Participante("Barney", "Gomez", 40, 12345678, );
+        Participante betty = new Participante("Betty", "Smith", 30, 87654321, );
 
         concursoEmpanadas.inscribirParticipante(barney);
         concursoBaile.inscribirParticipante(betty);

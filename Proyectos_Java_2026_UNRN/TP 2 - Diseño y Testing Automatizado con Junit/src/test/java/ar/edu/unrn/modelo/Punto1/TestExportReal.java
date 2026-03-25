@@ -8,7 +8,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 
 
 import java.time.LocalDate;
@@ -57,9 +56,9 @@ public class TestExportReal {
         concursoFalso710.setFechaActual(FECHA_CONCURSO_FALSO);
 
         // Creamos participantes
-        LocDog = new Participante("Loc", "Dog", 30, 87654321);
-        Cenicero = new Participante("Cenicero", "Zero", 25, 11223344);
-        HorseWithNoName = new Participante("Horse", "WithNoName", 40, 99887766);
+        LocDog = new Participante("Loc", "Dog", 30, 87654321, );
+        Cenicero = new Participante("Cenicero", "Zero", 25, 11223344, );
+        HorseWithNoName = new Participante("Horse", "WithNoName", 40, 99887766, );
 
 
     }

@@ -13,8 +13,11 @@
       <sourceFolder url="file://$MODULE_DIR$/Proyectos_Java_2026_UNRN/TP 2 - Diseño y Testing Automatizado con Junit/src/test" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/Proyectos_Java_2026_UNRN/TP 2-1 - Lambdas/src/main" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Proyectos_Java_2026_UNRN/TP 2-1 - Lambdas/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Proyectos_Java_2026_UNRN/TP 4 - Layers/src/main" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Proyectos_Java_2026_UNRN/TP 4 - Layers/src/main/java" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="derby" level="project" />
   </component>
 </module>

@@ -1,0 +1,6 @@
+Visualizando Dependencias entre Paquetes
+Veamos las dependencias entre packages usando jdeps. Parado en la raiz del proyecto podemos escribir:
+
+Comando orientado a los subpaquetes del tp4 ejercicio 1:
+jdeps -verbose:package   -p ar.unrn.tp4.dominio   -p ar.unrn.tp4.infraestructura       -p ar.unrn.tp4.ui       target/classes
+

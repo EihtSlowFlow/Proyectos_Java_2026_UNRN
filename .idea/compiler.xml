@@ -7,8 +7,10 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="tp1-testing (1)" />
+        <module name="tp2-testing" />
         <module name="tp1-testing (2)" />
         <module name="tp1-testing" />
+        <module name="tp4-layers" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

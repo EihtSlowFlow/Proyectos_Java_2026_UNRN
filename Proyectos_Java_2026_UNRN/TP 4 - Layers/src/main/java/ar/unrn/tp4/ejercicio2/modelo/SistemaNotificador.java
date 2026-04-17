@@ -14,6 +14,7 @@ public class SistemaNotificador {
         this.notificarEmpleado = notificarEmpleado;
     }
 
+
     public void enviarNotificacionCumpleanos() {
         var empleados = LecturaEmpleados.obtenerEmpleados();
         for (Empleado empleado : empleados) {

@@ -1,27 +1,16 @@
 package Ejercicio2Tests;
 
-public class FakeEmailService {
+import ar.unrn.tp4.ejercicio2.modelo.MailProvider;
+
+public class FakeEmailService implements MailProvider {
     public static int CONTADOR_MAILSENVIADOS = 0;
-    private String destinatario;
-    private String asunto;
-    private String mensaje;
 
+    @Override
     public void enviarMail(String destinatario, String asunto, String mensaje) {
-        this.destinatario = destinatario;
-        this.asunto = asunto;
-        this.mensaje = mensaje;
+        // Simula el envío de un correo electrónico
+        System.out.println("Enviando correo a: " + destinatario);
+        System.out.println("Asunto: " + asunto);
+        System.out.println("Mensaje: " + mensaje);
         CONTADOR_MAILSENVIADOS++;
-    }
-
-    public String getDestinatario() {
-        return destinatario;
-    }
-
-    public String getAsunto() {
-        return asunto;
-    }
-
-    public String getMensaje() {
-        return mensaje;
     }
 }

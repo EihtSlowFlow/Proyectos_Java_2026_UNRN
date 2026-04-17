@@ -18,9 +18,9 @@ public class FileManager implements ExportProvider {
     public FileManager(String ruta) {
         this.rutaArchivo = ruta;
     }
-
-
-    public List<Empleado> obtenerTodos() {
+    
+    @Override
+    public List<Empleado> obtenerEmpleados() {
         try (Stream<String> lineas = Files.lines(Paths.get(rutaArchivo))) {
             return lineas.skip(1) // Ignora la cabecera: "apellido, nombre, fecha de nacimiento, email"
                     .map(linea -> linea.split(","))
@@ -36,10 +36,5 @@ public class FileManager implements ExportProvider {
         } catch (IOException e) {
             throw new RuntimeException("No se pudo leer el archivo de empleados", e);
         }
-    }
-
-    @Override
-    public List<Empleado> obtenerEmpleados() {
-        return obtenerTodos();
     }
 }

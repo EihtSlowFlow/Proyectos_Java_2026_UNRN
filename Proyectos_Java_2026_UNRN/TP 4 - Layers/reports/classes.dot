@@ -1,0 +1,25 @@
+digraph "classes" {
+    // Path: target/classes
+   "ar.unrn.tp4"                                      -> "ar.unrn.tp4.aplicacion (classes)";
+   "ar.unrn.tp4"                                      -> "ar.unrn.tp4.infraestructura (classes)";
+   "ar.unrn.tp4"                                      -> "ar.unrn.tp4.ui (classes)";
+   "ar.unrn.tp4"                                      -> "java.awt (java.desktop)";
+   "ar.unrn.tp4"                                      -> "java.lang (java.base)";
+   "ar.unrn.tp4"                                      -> "java.lang.invoke (java.base)";
+   "ar.unrn.tp4"                                      -> "java.sql (java.sql)";
+   "ar.unrn.tp4.aplicacion"                           -> "ar.unrn.tp4.dominio (classes)";
+   "ar.unrn.tp4.aplicacion"                           -> "java.lang (java.base)";
+   "ar.unrn.tp4.dominio"                              -> "java.lang (java.base)";
+   "ar.unrn.tp4.dominio"                              -> "java.lang.invoke (java.base)";
+   "ar.unrn.tp4.dominio"                              -> "java.lang.runtime (java.base)";
+   "ar.unrn.tp4.infraestructura"                      -> "ar.unrn.tp4.aplicacion (classes)";
+   "ar.unrn.tp4.infraestructura"                      -> "ar.unrn.tp4.dominio (classes)";
+   "ar.unrn.tp4.infraestructura"                      -> "java.lang (java.base)";
+   "ar.unrn.tp4.infraestructura"                      -> "java.sql (java.sql)";
+   "ar.unrn.tp4.ui"                                   -> "ar.unrn.tp4.aplicacion (classes)";
+   "ar.unrn.tp4.ui"                                   -> "java.awt (java.desktop)";
+   "ar.unrn.tp4.ui"                                   -> "java.awt.event (java.desktop)";
+   "ar.unrn.tp4.ui"                                   -> "java.lang (java.base)";
+   "ar.unrn.tp4.ui"                                   -> "java.lang.invoke (java.base)";
+   "ar.unrn.tp4.ui"                                   -> "javax.swing (java.desktop)";
+}

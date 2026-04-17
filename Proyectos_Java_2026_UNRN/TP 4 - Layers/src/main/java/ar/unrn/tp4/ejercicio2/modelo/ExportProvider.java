@@ -1,5 +1,6 @@
 package ar.unrn.tp4.ejercicio2.modelo;
 
+import java.io.IOException;
 import java.util.List;
 
 public interface ExportProvider {

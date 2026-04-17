@@ -1,0 +1,24 @@
+# --- Credenciales y Configuraciones Locales ---
+# Ignora cualquier archivo .properties (TP2 database, TP4 config, etc.)
+**/*.properties
+
+# Si querés ser específico pero cubrir todo:
+src/main/resources/config.properties
+database.properties
+
+# --- Archivos de Compilación (Maven/Java) ---
+target/
+**/target/
+out/
+**/out/
+*.class
+
+# --- Archivos de IntelliJ IDEA ---
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# --- Archivos del Sistema y Temporales ---
+*.log
+.DS_Store

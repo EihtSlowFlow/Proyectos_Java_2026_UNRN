@@ -1,43 +1,55 @@
 package ar.unrn.tp4.ejercicio2.persistencia;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Properties;
 
 import ar.unrn.tp4.ejercicio2.modelo.MailProvider;
 import jakarta.mail.*;
 import jakarta.mail.internet.*;
 
-
 public class EmailService implements MailProvider {
-    public void enviarNotificacion(String destino, String asunto, String mensaje) {
-        // Configuraciones provistas por Mailtrap
-        Properties prop = new Properties();
-        prop.put("mail.smtp.auth", true);
-        prop.put("mail.smtp.starttls.enable", "true");
-        prop.put("mail.smtp.host", "sandbox.smtp.mailtrap.io");
-        prop.put("mail.smtp.port", "2525");
+    private final Properties prop = new Properties();
 
-        // sesión con autenticación
-        Session session = Session.getInstance(prop, new Authenticator() {
+    public EmailService() {
+        // Carga el archivo una sola vez cuando se crea el servicio
+        try (InputStream input = getClass().getClassLoader().getResourceAsStream("config.properties")) {
+            if (input == null) {
+                throw new RuntimeException("No se encontró config.properties en resources");
+            }
+            prop.load(input);
+        } catch (IOException e) {
+            throw new RuntimeException("Error al leer config.properties", e);
+        }
+    }
+
+    public void enviarNotificacion(String destino, String asunto, String mensaje) {
+        Session session = Session.getInstance(this.prop, new Authenticator() {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication("1c6f432458260d", "2c2610f1fb496f");
+                String user = prop.getProperty("mail.smtp.user");
+                String pass = prop.getProperty("mail.smtp.password");
+
+                System.out.println("DEBUG - Usuario leído: [" + user + "]");
+
+                if (user == null || pass == null) {
+                    throw new RuntimeException("Credenciales no encontradas en el archivo.");
+                }
+                return new PasswordAuthentication(user, pass);
             }
         });
 
         try {
-            // Construccion del mensaje
             Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress("unCorreoDefinitivamenteReal@unrn.edu.ar"));
+            message.setFrom(new InternetAddress("unrn@ejemplo.com"));
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(destino));
             message.setSubject(asunto);
             message.setText(mensaje);
 
-            //  Envio del mensaje
             Transport.send(message);
-            System.out.println("Correo capturado por Mailtrap!");
-
+            System.out.println("¡Correo capturado por Mailtrap!");
         } catch (MessagingException e) {
-            e.printStackTrace();
+            throw new RuntimeException("Error en el envío SMTP", e);
         }
     }
 

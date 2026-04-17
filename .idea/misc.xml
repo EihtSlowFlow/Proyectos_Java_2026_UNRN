@@ -5,9 +5,9 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/Proyectos_Java_2026_UNRN/TP 0 Objetos Anemicos/pom.xml" />
-        <option value="$PROJECT_DIR$/Proyectos_Java_2026_UNRN/TP 1 - Objetos y Testing Automatizado Con JUnit/pom.xml" />
         <option value="$PROJECT_DIR$/Proyectos_Java_2026_UNRN/TP 2 - Diseño y Testing Automatizado con Junit/pom.xml" />
         <option value="$PROJECT_DIR$/Proyectos_Java_2026_UNRN/TP 4 - Layers/pom.xml" />
+        <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
   </component>

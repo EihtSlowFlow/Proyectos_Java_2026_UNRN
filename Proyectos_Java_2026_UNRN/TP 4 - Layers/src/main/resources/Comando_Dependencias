@@ -1,0 +1,1 @@
+jdeps -verbose:package -p ar.unrn.tp4.ejercicio3.modelo -p ar.unrn.tp4.ejercicio3.persistencia -p ar.unrn.tp4.ejercicio3.vista target/classes

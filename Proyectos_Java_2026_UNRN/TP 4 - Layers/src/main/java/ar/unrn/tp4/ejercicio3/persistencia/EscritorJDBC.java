@@ -20,16 +20,16 @@ public class EscritorJDBC implements OutExport {
     }
 
     @Override
-    public void saveInscription(Candidato ca) {
+    public void saveInscription(String apellido, String nombre, String telefono, String email, int idConcurso) {
         String sql = "INSERT INTO inscriptos (nombre, apellido, telefono, email, id_concurso) VALUES (?, ?, ?, ?, ?)";
         try (Connection conn = DriverManager.getConnection(url, user, password);
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
-            pstmt.setString(1, ca.nombre());
-            pstmt.setString(2, ca.apellido());
-            pstmt.setString(3, ca.telefono());
-            pstmt.setString(4, ca.email());
-            pstmt.setInt(5, ca.idconcurso());
+            pstmt.setString(1, nombre);
+            pstmt.setString(2, apellido);
+            pstmt.setString(3, telefono);
+            pstmt.setString(4, email);
+            pstmt.setInt(5, idConcurso);
 
             pstmt.executeUpdate();
 

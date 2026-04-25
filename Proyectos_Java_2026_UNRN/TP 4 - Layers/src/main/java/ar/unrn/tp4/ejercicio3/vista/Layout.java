@@ -1,14 +1,9 @@
 package ar.unrn.tp4.ejercicio3.vista;
 
-import ar.unrn.tp4.ejercicio3.modelo.CompetitionManagement;
-import ar.unrn.tp4.ejercicio3.modelo.Concurso;
-import ar.unrn.tp4.ejercicio3.modelo.InscriptionManagement;
+import ar.unrn.tp4.ejercicio3.modelo.*;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class Layout {
 
@@ -28,11 +23,11 @@ public class Layout {
     private JComboBox<Concurso> comboBox;
 
     CompetitionManagement competitionManagement;
-    InscriptionManagement validations;
+    InscriptionManagement inscripcionConcurso;
 
-    public Layout(CompetitionManagement competitionManagement, InscriptionManagement validations) {
+    public Layout(CompetitionManagement competitionManagement, InscriptionManagement formaDeInscripcionExterna) {
         this.competitionManagement = competitionManagement;
-        this.validations = validations;
+        this.inscripcionConcurso = formaDeInscripcionExterna;
 
         var frame = new JFrame("Inscription to Competition");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -117,27 +112,26 @@ public class Layout {
         txtEmail = new JTextField();
         txtEmail.setColumns(10);
         btnOk = new JButton("Ok");
-        btnOk.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                btnOk.setEnabled(false);
-                /*
-                Acá debería traer una interfaz que implemente al LectorArchivo
-                 */
-                Concurso seleccionado = (Concurso) comboBox.getSelectedItem();
-                String nombre = txtName.getText();
-                String apellido = txtLastName.getText();
-                String dni = txtId.getText();
-                String telefono = txtPhone.getText();
-                String email = txtEmail.getText();
-                try {
-                    validations.inscribirCandidato(nombre, apellido, telefono, email, seleccionado.idconcurso());
-                    System.out.println("Inscripcion exitosa");
-                    SwingUtilities.getWindowAncestor(btnOk).dispose();
-                } catch (IllegalArgumentException ex) {
-                    JOptionPane.showMessageDialog(contentPane, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-                } finally {
-                    btnOk.setEnabled(true);
-                }
+        btnOk.addActionListener(e -> {
+            btnOk.setEnabled(false);
+            /*
+            Acá debería traer una interfaz que implemente al LectorArchivo
+             */
+            Concurso seleccionado = (Concurso) comboBox.getSelectedItem();
+            String nombre = txtName.getText();
+            String apellido = txtLastName.getText();
+            //  String dni = txtId.getText(); No se usa realmente
+            String telefono = txtPhone.getText();
+            String email = txtEmail.getText();
+            try {
+                // Acá durante la creación puede saltar una excepción si hubo un error. No es necesario un METHOD exclusivo para validaciones.
+                inscripcionConcurso.inscribirCandidato(new Candidato(apellido, nombre, new Telefono(telefono), new eMail(email), seleccionado));
+                System.out.println("Inscripcion exitosa");
+                SwingUtilities.getWindowAncestor(btnOk).dispose();
+            } catch (IllegalArgumentException ex) {
+                JOptionPane.showMessageDialog(contentPane, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            } finally {
+                btnOk.setEnabled(true);
             }
         });
         lblCompetition = new JLabel("Concurso:");

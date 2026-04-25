@@ -12,11 +12,12 @@ public class EscritorArchivo implements OutExport {
         this.path = path;
     }
 
-    public void saveInscription(Candidato candidato) {
+    public void saveInscription(String apellido, String nombre, String telefono, String email, int idConcurso) {
         // Candidato can = new Candidato(apellido, nombre, telefono, email, idConcurso);
-        /// Formato: apellido, nombre, teléfono, email, idconcurso
+        /// Formato: apellido, nombre, teléfono, email, idconcursoCa
+        String linea = apellido + "," + nombre + "," + telefono + "," + email + "," + idConcurso;
         try (PrintWriter writer = new PrintWriter(new FileWriter(path, true))) {
-            writer.println(candidato); // println agrega el salto de línea automático
+            writer.println(linea); // println agrega el salto de línea automático
         } catch (IOException e) {
             throw new RuntimeException("Error guardando en: " + path, e);
         }

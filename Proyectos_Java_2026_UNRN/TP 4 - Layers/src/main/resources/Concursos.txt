@@ -1,4 +1,4 @@
 idconcurso, nombre, fechaInicioInscripcion, fechaFinInscripcion
 1, concurso x, 2020/06/01, 2020/07/01
 2, concursoAbril_Mayo, 2026/04/01, 2026/05/01
-3, SPEAKERBOXXX OUTKAST CONQUEST, 2026/04/01, 2026/05/01
+3, SPEAKERBOXXX OUTKAST CONTEST, 2026/04/01, 2026/05/01

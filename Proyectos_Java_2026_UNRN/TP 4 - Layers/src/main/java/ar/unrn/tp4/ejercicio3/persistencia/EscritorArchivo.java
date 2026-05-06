@@ -11,7 +11,8 @@ public class EscritorArchivo implements OutExport {
     public EscritorArchivo(String path) {
         this.path = path;
     }
-
+    
+    @Override
     public void saveInscription(String apellido, String nombre, String telefono, String email, int idConcurso) {
         // Candidato can = new Candidato(apellido, nombre, telefono, email, idConcurso);
         /// Formato: apellido, nombre, teléfono, email, idconcursoCa

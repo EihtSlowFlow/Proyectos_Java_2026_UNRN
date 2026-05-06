@@ -22,3 +22,7 @@ out/
 # --- Archivos del Sistema y Temporales ---
 *.log
 .DS_Store
+/fix-intellij.sh
+/fix-intellij-project.sh
+/.ai/mcp/mcp.json
+/Proyectos_Java_2026_UNRN/TP 5 - Template Method y Composite/run.sh

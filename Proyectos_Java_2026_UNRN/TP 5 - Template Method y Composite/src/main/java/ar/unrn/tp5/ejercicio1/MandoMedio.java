@@ -13,12 +13,6 @@ public class MandoMedio implements EmpleadoInterface {
         this.nombre = nombre;
         this.apellido = apellido;
     }
-
-    public List<EmpleadoInterface> getLideresDeProyecto() {
-        return lideresDeProyecto;
-    }
-
-
     @Override
     public double calcularSueldoSubordinados() {
         double salida = SUELDO;

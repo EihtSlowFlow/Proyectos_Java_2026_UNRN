@@ -1,9 +1,8 @@
 package ar.unrn.tp5.ejercicio2;
 
 public class Spike implements ItemDeProyecto {
-    // También tenemos ítems de tipo spike (tareas de análisis)
-    String descripcion;
-    int tiempoEstimado; // en horas
+    private String descripcion;
+    private  int tiempoEstimado; // en horas
 
     public Spike(String descripcion, int tiempoEstimado) {
         this.descripcion = descripcion;
@@ -12,6 +11,6 @@ public class Spike implements ItemDeProyecto {
 
     @Override
     public int calcularTiempo() {
-        return  tiempoEstimado;
+        return tiempoEstimado;
     }
 }

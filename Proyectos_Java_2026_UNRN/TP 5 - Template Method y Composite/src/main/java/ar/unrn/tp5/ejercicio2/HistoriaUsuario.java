@@ -5,9 +5,9 @@ import java.util.List;
 public class HistoriaUsuario implements ItemDeProyecto {
     private String usuario;
     private String descripcion;
-    private List<Tarea> tareas;
+    private List<ItemDeProyecto> tareas;
 
-    public HistoriaUsuario(String usuario, String descripcion, List<Tarea> tareas) {
+    public HistoriaUsuario(String usuario, String descripcion, List<ItemDeProyecto> tareas) {
         this.usuario = usuario;
         this.descripcion = descripcion;
         this.tareas = tareas;
@@ -16,8 +16,8 @@ public class HistoriaUsuario implements ItemDeProyecto {
     @Override
     public int calcularTiempo() {
         int tiempoTotal = 0;
-        for (Tarea tarea : tareas) {
-            tiempoTotal+= tarea.tiempoEstimado();
+        for (ItemDeProyecto tarea : tareas) {
+            tiempoTotal+= tarea.calcularTiempo();
         }
         return tiempoTotal;
     }

@@ -15,17 +15,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Principal {
-    static public void main(String[] args) {
-        ProyectoScrum proyectoScrum = new ProyectoScrum();
-        List<Tarea> tareas = new ArrayList<>();
-        tareas.add(new Tarea("Diseñar la interfaz de usuario", 5));
-        tareas.add(new Tarea("Implementar la lógica de negocio", 10));
-        HistoriaUsuario historiaUsuario = new HistoriaUsuario("AdministradorGeneralSuperior", "como usuario quiero hacer algo porque si", tareas);
-        Spike spike = new Spike("Investigar tecnologías de frontend", 3);
-        proyectoScrum.itemsDeProyecto = new ArrayList<>();
-        proyectoScrum.itemsDeProyecto.add(historiaUsuario);
-        proyectoScrum.itemsDeProyecto.add(spike);
-        System.out.println("Tiempo estimado(horas): " + proyectoScrum.calcularTiempoTotal());
+    public static void main(String[] args) {
+        List<ItemDeProyecto> items = new ArrayList<>();
+        items.add(new HistoriaUsuario("Usuario1", "Descripcion1", List.of(new Tarea("Tarea1", 3)
+                , new Tarea("Tarea2", 2))));
+        items.add(new HistoriaUsuario("Usuario2", "Descripcion2", List.of(new Tarea("Tarea3", 4),
+                new Tarea("Tarea4", 1))));
+        items.add(new Spike("Spike1", 5));
+        ProyectoScrum proyectoScrum = new ProyectoScrum(items);
+        System.out.println("Tiempo estimado en horas de proyecto: " + proyectoScrum.mostrar());
+
     }
 
 }

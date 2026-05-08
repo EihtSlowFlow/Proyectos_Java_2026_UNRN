@@ -1,13 +1,15 @@
 package ar.unrn.tp5.ejercicio2;
 
-public class Tarea {
+public class Tarea implements ItemDeProyecto {
     private String descripcion;
-    private int tiempoEstimado; // Horas
-    Tarea(String descripcion, int tiempoEstimado) {
+    private final int tiempoEstimado; // Horas
+    public Tarea(String descripcion, int tiempoEstimado) {
         this.descripcion = descripcion;
         this.tiempoEstimado = tiempoEstimado;
     }
-    public int tiempoEstimado() {
+
+    @Override
+    public int calcularTiempo() {
         return tiempoEstimado;
     }
 }

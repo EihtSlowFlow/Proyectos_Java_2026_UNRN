@@ -33,6 +33,7 @@
         <module>Proyectos_Java_2026_UNRN/TP 1 - Objetos y Testing Automatizado Con JUnit</module>
         <module>Proyectos_Java_2026_UNRN/TP 2 - Diseño y Testing Automatizado con Junit</module>
         <module>Proyectos_Java_2026_UNRN/TP 4 - Layers</module>
-        <module>Proyectos_Java_2026_UNRN/TP 5 - Template Method y Composite</module>
+        <module>Proyectos_Java_2026_UNRN/TP 4.1 - Template Method y Composite</module>
+        <module>Proyectos_Java_2026_UNRN/TP 5 - Adapter Y Decorator</module>
     </modules>
 </project>

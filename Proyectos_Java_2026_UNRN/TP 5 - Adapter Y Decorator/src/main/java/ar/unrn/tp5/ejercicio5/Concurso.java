@@ -1,26 +1,23 @@
-package ar.edu.unrn.modelo.Punto1;
-
-import ar.edu.unrn.infraestructura.Notificador;
-
+package ar.unrn.tp5.ejercicio5;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Supplier;
 
-public class Concurso {
-    private final Export export;
-    private final String nombreConcurso;
-    private final LocalDate fechaInicio;
-    private final LocalDate fechaFin;
-    private final List<Participante> inscriptos;
+public class Concurso implements Inscribible {
+    private  Export export;
+    private  String nombreConcurso;
+    private  LocalDate fechaInicio;
+    private  LocalDate fechaFin;
+    private  List<Participante> inscriptos;
     /// Inyección de dependencia
-    private final Supplier<LocalDate> dateProvider;
+    private  Supplier<LocalDate> dateProvider;
     /// Notificador, puede llamar al que está en memoria o al que está enlazado a mailtrap
-    private final Notificador notificador;
+    private  Notificador notificador;
 
 
-    private static final DateTimeFormatter FORMATO_FECHA = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    private static  DateTimeFormatter FORMATO_FECHA = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     public Concurso(LocalDate inicio, LocalDate fin, String nombreConcurso, Export export, Notificador notificacion, Supplier<LocalDate> dateProvider) {
         this.nombreConcurso = nombreConcurso;
@@ -31,6 +28,14 @@ public class Concurso {
         this.export = export;
         this.notificador = notificacion;
     }
+    public Concurso(LocalDate inicio, LocalDate fin, String nombreConcurso,Supplier<LocalDate> dateProvider) {
+        this.nombreConcurso = nombreConcurso;
+        this.fechaInicio = inicio;
+        this.fechaFin = fin;
+        this.inscriptos = new ArrayList<>();
+        this.dateProvider = dateProvider;
+    }
+
 
     public boolean estaAbierto() {
         // Rango inclusivo: inicio <= actual <= fin
@@ -39,6 +44,8 @@ public class Concurso {
                 (hoy.isEqual(fechaFin) || hoy.isBefore(fechaFin));
     }
 
+    // Entiendo que acá debería implementar el decorador porque es desde acá donde envio el correo
+    // o la notificación por un medio 'X' determinado por el valor del notificador
     public void inscribirParticipante(Participante p) {
         if (!estaAbierto()) {
             throw new RuntimeException("El concurso ya no está abierto para inscripciones.");
@@ -48,11 +55,14 @@ public class Concurso {
             p.ganarPuntos(10);
         }
         this.inscriptos.add(p);
+        /*
         notificador.enviarNotificacion(p.getCorreoElectronico(),
                 "Inscripción al concurso " + this.nombreConcurso,
                 "¡Hola " + p.getNombreCompleto() + "! \nLe comunicamos desde la administración superior de gerencia administrativa con sede en la jefatura marcial correctiva interdisciplinaria y autorreflexiva que usted ha sido aceptado en el concurso de " + this.nombreConcurso + ".\n" +
                         "Fecha de inscripción: " + this.dateProvider.get().format(FORMATO_FECHA) + "\n" +
                         "¡Muchas felicidades! ");
+         */
+
     }
 
     public void export() {
@@ -69,15 +79,14 @@ public class Concurso {
         }
         return sb.toString();
     }
-    /* De plano, está mal. Rompe encapsulamiento.
-    // Método fundamental para los tests
-    public void setFechaActual(LocalDate fecha) {
-        this.fechaActual = fecha;
-    }
-     */
 
-    /// Funciona correctamente, se sobrescribieron los métodos equals y hashcode sobre la clase Participante.
     public boolean tieneInscripto(Participante p) {
         return inscriptos.contains(p);
+    }
+
+
+    @Override
+    public void inscribir(Participante participante) {
+        inscribirParticipante(participante);
     }
 }

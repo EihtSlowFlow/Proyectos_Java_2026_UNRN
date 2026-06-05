@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="tp-observer-double-dispatch-strategy" />
         <module name="tp5-AdapterYDecorator" />
         <module name="tp2-testing" />
         <module name="tp4.1-TemplateMethodYComposite" />
@@ -14,6 +15,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="TP Observer - Double Dispatch - Strategy" target="21" />
       <module name="tp4.1-templateMethodYComposite" target="21" />
     </bytecodeTargetLevel>
   </component>

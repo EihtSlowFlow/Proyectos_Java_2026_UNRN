@@ -1,0 +1,9 @@
+Mejore la implementación anterior utilizando un Decorador. El resultado
+final es que el ejercicio se resuelve utilizando ambos patrones: Observer y Decorador.
+
+Utilizando el ejercicio del restaurante del TP 1 y TP 2, implemente
+utilizando el patrón Observer, una pantalla que tendrá el gerente general del restaurante con el
+monto de la facturación de la última mesa. Cree una pantalla para seleccionar platos, bebidas
+y permita pagar el total. Cada vez que se efectúa una venta, la pantalla del gerente reflejará el
+monto facturado. Si el monto facturado supera los 300.000 pesos, el monto en la pantalla debe
+aparecer de color rojo.

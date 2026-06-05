@@ -1,0 +1,29 @@
+Se pide:
+1. Modifique la clase WheatherChannel para consumir el servicio web de
+https://openweathermap.org/current.
+Obtenga una cuenta gratuita desde: https://home.openweathermap.org/users/sign_up
+(registrándose). Una vez registrado, recibirá un email con una API KEY que necesitan para
+consumir los servicios. La activación de la API KEY demora unos 15 minutos una vez
+creada.
+Ejemplo de consumo del clima en Viedma en celsius:
+https://api.openweathermap.org/data/2.5/weather?q=Viedma,Argentina&units=metric&APPID
+=TU_API_KEY
+2. Utilizando el patrón Observer, escriba dos observadores:
+​
+ a. Uno que guarde en un archivo de texto una entrada por cada lectura que se realiza
+de la temperatura y la fecha en la que se realiza.
+​
+ b. Otro que imprima en consola cada vez que se lea la temperatura. Si la temperatura
+es menor a 12 grados, debe imprimir: “Hace frio, se encenderá la caldera”. Si la temperatura
+es mayor a 17 grados, debe imprimir: “Hace calor, se encenderá el aire acondicionado”.
+3. (OPCIONAL) Mejore la implementación anterior utilizando un Decorador. El resultado
+final es que el ejercicio se resuelve utilizando ambos patrones: Observer y Decorador.
+4. Utilizando el patrón Observer, modifique el ejercicio 1 del TP de layers para enviar un
+email al participante cada vez que se inscriba. En la pantalla de inscripción deberá agregar un
+input para que se pueda cargar el email.
+5. (OPCIONAL) Utilizando el ejercicio del restaurante del TP 1 y TP 2, implemente
+utilizando el patrón Observer, una pantalla que tendrá el gerente general del restaurante con el
+monto de la facturación de la última mesa. Cree una pantalla para seleccionar platos, bebidas
+y permita pagar el total. Cada vez que se efectúa una venta, la pantalla del gerente reflejará el
+monto facturado. Si el monto facturado supera los 300.000 pesos, el monto en la pantalla debe
+aparecer de color rojo.

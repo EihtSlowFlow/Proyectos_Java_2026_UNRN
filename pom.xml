@@ -49,5 +49,8 @@
         <module>Proyectos_Java_2026_UNRN/TP 4.1 - Template Method y Composite</module>
         <module>Proyectos_Java_2026_UNRN/TP 5 - Adapter Y Decorator</module>
         <module>Proyectos_Java_2026_UNRN/TP Observer - Double Dispatch - Strategy</module>
+        <module>Proyectos_Java_2026_UNRN/TP 7 - Proxy y Fachada</module>
+        <module>Proyectos_Java_2026_UNRN/TP AOP - LayRefac</module>
+
     </modules>
 </project>

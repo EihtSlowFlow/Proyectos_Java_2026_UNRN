@@ -51,6 +51,6 @@
         <module>Proyectos_Java_2026_UNRN/TP Observer - Double Dispatch - Strategy</module>
         <module>Proyectos_Java_2026_UNRN/TP 7 - Proxy y Fachada</module>
         <module>Proyectos_Java_2026_UNRN/TP AOP - LayRefac</module>
-
+        <module>Proyectos_Java_2026_UNRN/TP 10 - Frameworks</module>
     </modules>
 </project>
